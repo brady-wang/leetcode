@@ -33,9 +33,26 @@ function insertSort($arr)
     return $arr;
 }
 
+function insertSortV2($arr)
+{
+    $count = count($arr);
+
+    for($i=1;$i<$count;$i++){
+        $tmp = $arr[$i];
+
+        for($j=$i-1;$j>=0;$j--){
+            if($arr[$j] > $tmp){
+                $arr[$j+1] = $arr[$j];
+                $arr[$j] = $tmp;
+            }
+        }
+    }
+    return $arr;
+}
+
 $arr = [234,4,453,5,22,234,345,45,665,78];
 
 echo join(',',$arr);
 echo "<br />";
-$res = insertSort($arr);
+$res = insertSortV2($arr);
 echo join(',',$res);
