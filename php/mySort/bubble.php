@@ -1,10 +1,10 @@
 <?php
 
-$arr = [3,412,12,43,345,546,76,567,56];
+$arr = [3,4,12,43,5,1,6,7,9];
 
 echo join(',',$arr);
 echo "<br />";
-$res = bubble($arr);
+$res = bubbleV2($arr);
 echo join(',',$res);
 
 
@@ -41,6 +41,27 @@ function bubble($arr)
     }
     return $arr;
 }
+
+
+function bubbleV2($arr)
+{
+    $n = count($arr);
+
+    // 外层控制趟数，没趟找到一个最大的，一共要走n-1趟
+    for($i=0;$i<$n;$i++){
+        // 内层每次找到一个最大的，冒泡到最后面 每次循环次数为 n-1-i 次 内层除了总循环次数和外层有关，其他无关，都是自己和自己下一个比较
+        for($j=0;$j<$n-1-$i;$j++){
+            if($arr[$j] > $arr[$j+1]){ // 从第一个数往后，如果发现相邻的比较，自己比后面的大就交换
+                $tmp = $arr[$j];
+                $arr[$j] = $arr[$j+1];
+                $arr[$j+1] = $tmp;
+            }
+        }
+    }
+    return $arr;
+}
+
+
 
 
 

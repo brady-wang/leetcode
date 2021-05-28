@@ -50,9 +50,28 @@ function insertSortV2($arr)
     return $arr;
 }
 
-$arr = [234,4,453,5,22,234,345,45,665,78];
+
+function insertSortV3($arr)
+{
+    $n = count($arr);
+    for($i=1;$i<$n;$i++){
+        $tmp = $arr[$i];  // 需要插入的数据
+        // 从他的下一位开始 一直到第0位
+        for($j=$i-1;$j>=0;$j--){
+           if($tmp < $arr[$j] ){ // 如果循环的这个数比当前已排序好的最后一个数还小 那么移动这个位置靠后 当前位置空出来，放需要插入的
+               $arr[$j+1] = $arr[$j];
+               $arr[$j] = $tmp;
+           }
+        }
+        echo join(',',$arr);
+        echo "<br />";
+    }
+    return $arr;
+}
+
+$arr = [61,27,48,63,32,641];
 
 echo join(',',$arr);
 echo "<br />";
-$res = insertSortV2($arr);
+$res = insertSortV3($arr);
 echo join(',',$res);
