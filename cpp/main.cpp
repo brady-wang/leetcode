@@ -10,9 +10,10 @@ void demo342()
     isFour = Demo342::isPowerOfFour(number);
 
 
-    cout << "ÊÇ·ñÊÇ4µÄÃÝ " << endl;
     cout << isFour << endl;
 }
+
+void
 
 int main() {
 
